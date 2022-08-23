@@ -1,0 +1,23 @@
+.inline{
+    display: inline-block;
+    margin-right:80px;
+}
+.inline1{
+    width: 300px;
+}
+.inline2{
+    display: inline-block;
+    margin-right: 80px;
+}
+.inline3{
+    display: inline-block;
+    margin-right: 40px;
+}
+.inline4{
+    display: inline-block;
+    margin-right: 40px;
+}
+.size{
+    margin-top: 10px;
+    height: 35px;
+}
