@@ -1,0 +1,82 @@
+<div class="container">   
+    <div class="row"> 
+        <div class="col-md-3">
+<div class="form-group">
+<label for="series" style="color:#d2691e;">Series:</label>
+<select class="form-control" #myselect (change)='onOptionsSelected(myselect.value)' formControlname="seriesname">
+    <option value="">Select Series</option>
+    <option [value]="eachVal.series_id" *ngFor="let eachVal of seriesList">{{eachVal.series_name}}</option>
+</select>
+</div>
+</div>
+
+
+<div class="col-md-3">
+    <div class="form-group">
+    <label for="model" style="color: chocolate;">Model:</label>
+    <select class="form-control" (change)='onModelSelected($event)' formControlname="model">
+        <option value="">choose model</option>
+        <option [value]="eachModel.model_id" *ngFor="let eachModel of modelList">{{eachModel.model_name}}</option>
+    </select>
+</div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="Accessory" style="color:chocolate;">Accessory:</label>      
+        <ng-multiselect-dropdown formControlname="Accessory"
+  [placeholder]="'custom placeholder'"
+  [data]="accessoryList"
+  [(ngModel)]="selectedItems"
+  [settings]="dropdownSettings"
+  (onSelect)="onAccessSelect($event)"
+  (onDeSelect)="onAccessDeSelect($event)"
+>
+</ng-multiselect-dropdown>
+</div>
+    </div>
+
+<div class="col-md-3">
+    <div class="form-group">
+        <label for="Color" style="color: chocolate;">Color:</label>
+    <ng-multiselect-dropdown formControlname="color"
+[placeholder]="'custom placeholder'"
+[data]="colorList"
+[(ngModel)]="selectedItems"
+[settings]="colorDropdownSettings"
+(onSelect)="onColorSelect($event)"
+(onDeSelect)="onColorDeSelect($event)"
+
+>
+</ng-multiselect-dropdown>
+
+</div>
+  </div>
+  </div>
+
+<br>
+<br>
+<form (ngSubmit)="onSubmit()">
+    <div class="col-md-12">
+<div class="col-md-2">  
+    <button type="submit" class="btn btn-primary" onclick="submit()">Submit</button>
+</div>
+
+<div class="col-md-2">  
+    <div class="form-group">
+    <button type="reset" class="btn btn-success" id="reset-btn" onclick="reset()">Reset</button> 
+    </div>
+</div>
+    </div>
+</form>
+
+
+<br>
+
+
+    <div class="col-md-12">
+        <h2>Total Price : {{this.totalPrice}}</h2>
+        <br>
+        <h2>{{this.success}}</h2>
+    </div>
+</div>
